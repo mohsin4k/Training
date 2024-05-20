@@ -41,4 +41,51 @@ function fullName() {
   let x = person;
 
   
-  console.log(x.myFunction()); 
+//   console.log(x.myFunction()); 
+
+  // Explicit binding using call apply and bind
+
+  const person1 = {
+    fullName: function() {
+      return this.firstName + " " + this.lastName;
+    }
+  }
+  
+  const person2 = {
+    firstName:"Mohsin",
+    lastName: "Khan",
+  }
+  
+  // Return "Mohsin Khan":
+  //Here we are calling the function of object person1 but with reference of person2
+//   console.log(person1.fullName.call(person2));
+
+//Bind function
+
+const person3 = {
+    firstName:"John",
+    lastName: "Doe",
+    fullName: function () {
+      return this.firstName + " " + this.lastName;
+    }
+  }
+  
+  const member = {
+    firstName:"Hege",
+    lastName: "Nilsen",
+  }
+  
+  let fullNameP = person3.fullName.bind(member);
+
+//   console.log(fullNameP());
+
+
+// Object and how to add properties in a object dynamically
+const animal = new Object();
+animal.type = "Dog";
+animal.breed = "Husky";
+animal.color = "Black";
+animal.age = 5;
+
+// console.log(animal);
+
